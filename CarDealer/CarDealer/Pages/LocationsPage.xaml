@@ -74,7 +74,7 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
 
-      <maps:Map Grid.Row="0" IsShowingUser="True" HasZoomEnabled="True" HasScrollEnabled="True" />
+      <maps:Map x:Name="MyMap" Grid.Row="0" IsShowingUser="True" HasZoomEnabled="True" HasScrollEnabled="True" />
       
       <artina:GridOptionsView
                          x:Name="menuOptions"

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace CarDealer.Pages
 {
@@ -16,6 +17,19 @@ namespace CarDealer.Pages
          InitializeComponent();
             BindingContext = this;
 
+            var position = new Position(43.662369, -79.383573); // Latitude, Longitude
+            var pin = new Pin
+            {
+                Type = PinType.Place,
+                Position = position,
+                Label = "Car Dealer",
+                Address = "Car Dealer's Address"
+            };
+            MyMap.Pins.Add(pin);
+
+            MyMap.MoveToRegion(
+                    MapSpan.FromCenterAndRadius(
+                        position, Distance.FromMiles(1)));
         }
 
         private async void OnBackTapped(Object sender, EventArgs e)
