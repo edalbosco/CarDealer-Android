@@ -6,12 +6,13 @@
 	           xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
 	           xmlns:converters="clr-namespace:UXDivers.Artina.Grial;assembly=UXDivers.Artina.Grial">
 
+   
   <Application.Resources>
     <!-- http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/styles/ -->
 
     <ResourceDictionary>
       <!-- 
-
+ 
 				EXPORTED COLORS
 
 				Everytime you change any of the exported colors
@@ -19,9 +20,9 @@
 				to see your changes on your App
 			-->
       <!-- Export AccentColor -->
-      <Color x:Key="AccentColor">#FF7F0000</Color>
+      <Color x:Key="AccentColor">#FF000000</Color>
       <!-- Export InverseTextColor -->
-      <Color x:Key="InverseTextColor">White</Color>
+      <Color x:Key="InverseTextColor">#FFFFFFFF</Color>
 
 
       <!-- COLORS -->
@@ -93,7 +94,9 @@
       <FileImageSource x:Key="HamburguerIcon" File="hamburguer_icon.png" />
       <FileImageSource x:Key="WelcomeBackgroundImage" File="welcome_bg.jpg" />
 
-      <FileImageSource x:Key="BrandImage" File="logo.png" />
+       <FileImageSource x:Key="HomeBackgroundImage" File="home.PNG" />
+
+       <FileImageSource x:Key="BrandImage" File="logo.png" />
 
       <FileImageSource x:Key="LoginBackgroundImage" File="signup_bg.jpg" />
       <FileImageSource x:Key="SignUpBackgroundImage" File="signup_bg.jpg" />

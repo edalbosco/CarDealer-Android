@@ -17,6 +17,7 @@ namespace CarDealer.Droid
             base.OnCreate(bundle);
 
             Xamarin.Forms.Forms.Init(this, bundle);
+            Xamarin.FormsMaps.Init(this, bundle);
 
             ToolbarResource = Resource.Layout.Toolbar;
             TabLayoutResource = Resource.Layout.Tabs;

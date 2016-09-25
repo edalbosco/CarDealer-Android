@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+             xmlns:templates="clr-namespace:CarDealer.Templates"
+             x:Class="CarDealer.Pages.AboutUsPage"
+             BackgroundColor="Black"
+             Title="About Us" >
+  
+  <Grid Padding="0" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+
+    <Grid VerticalOptions="Start">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+       <!--CLOSE ICON--> 
+      <Label
+         Grid.Column="0"
+         Text="&#xf053;"
+         FontSize="20"
+         Style="{StaticResource FontIcon}"
+         Opacity="1"
+         TextColor="Blue"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+                  >
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnBackTapped" />
+        </Label.GestureRecognizers>
+      </Label>
+
+      <Label
+         Grid.Column="1"
+         Text="Home"
+         TextColor="Blue"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+               >
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnBackTapped" />
+        </Label.GestureRecognizers>
+      </Label>
+
+       <!--Title--> 
+      <Label
+         Grid.Column="2"
+         Text="About Us"
+         TextColor="White"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+         FontSize="24"
+         TranslationX="-15"
+			   />
+
+    </Grid>
+
+    <Grid Grid.Row="1"
+      VerticalOptions="FillAndExpand"
+          ColumnSpacing="0"
+          RowSpacing="0"
+          Padding="0">
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+
+      <Label Margin="10,0" FontSize="Medium" VerticalTextAlignment="Start" Text="Lorem ipsum dolor sit amet, primis nominavi ad vim, per ipsum oporteat at, ad sed solum omittam. Eos eu ubique reprimique. Pro pertinax inimicus constituto at. Pri verear noluisse incorrupte an.
+
+Idque graeci definiebas per eu, te sed repudiare assentior. At cum prima alienum. His at dico erat tractatos, veniam reprimique consequuntur ex per. No mea veritus qualisque iracundia. Docendi salutatus est ex.
+
+Sale clita dissentias mei ne, an partiendo adolescens voluptatum mel. Sonet tincidunt interesset in vim, sea magna argumentum constituam no. Ad inermis delectus eum, tollit labitur eam cu. Congue tempor laboramus ne ius, cu noster facilisis disputando pri. Graecis eloquentiam sea ut, pri id paulo mucius aliquid. Nec expetendis consectetuer signiferumque at, paulo accumsan sit in.
+
+Vidit legere appellantur ea mel. Alii habeo vix ut, ius ei graeco eirmod vocibus. His melius dolorem tincidunt ex, no his probo ridens deserunt, ius in meis recusabo. Mel te solum libris accusamus, homero veritus an cum, ea mel quis veniam virtute. Quo te denique efficiendi consequuntur. Vis at mundi cotidieque, sed ne tantas fabulas oporteat. Nec erant oportere liberavisse ad, no per alterum civibus oporteat.
+
+Id tractatos explicari pri, hinc habemus temporibus no qui. Usu no clita possit, atqui feugait ex usu, eu sit quot dolores adolescens. Exerci ridens possim ad vix, ne sit quas harum partiendo. At docendi constituam eam, ponderum perpetua definitiones cum id. Has ea vitae dicant fuisset. Erant percipit sit ne, at munere causae duo. Usu eu atqui dolorem." TextColor="White"
+/>
+
+      <Image Source="carAbout.PNG" Grid.Row="1" Margin="10,20" VerticalOptions="Start"/>
+
+      <artina:GridOptionsView
+                         x:Name="menuOptions"
+                         Grid.Row="2"
+                         ColumnCount="5"
+                         RowCount="1"
+                         ColumnSpacing="0"
+                         RowSpacing="0"
+                         Padding="5,5,0,5"
+                         VerticalOptions="Center"
+                         BackgroundColor="Black"
+                         ItemsSource="{Binding Items}"
+                         HeightRequest="45">
+        <artina:GridOptionsView.ItemTemplate>
+          <DataTemplate>
+            <templates:BottomMenuItemTemplate
+                  ShowBackgroundImage="false"
+                  ShowBackgroundColor="false"
+                  ShowiconColoredCircleBackground="false"
+                  TextColor="White" />
+          </DataTemplate>
+        </artina:GridOptionsView.ItemTemplate>
+      </artina:GridOptionsView>
+
+    </Grid>
+
+  </Grid>
+</ContentPage>

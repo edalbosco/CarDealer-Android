@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Car Dealers" android:largeHeap="@bool/largeheap" android:icon="@drawable/icon"></application>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<application android:label="Car Dealers" android:largeHeap="@bool/largeheap" android:icon="@drawable/icon">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDk3hT3vE2eCKUQA1DqMTe4o4biBHWxVa4" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	</application>
 </manifest>

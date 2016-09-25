@@ -12,9 +12,9 @@
 	</style>
 
 	<!-- Theme -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
-		<!-- Set AppCompat’s color theming attrs -->
+    <!-- Set AppCompat’s color theming attrs -->
 
 		<!-- colorPrimary is used for the default action bar background -->
 		<item name="colorPrimary">@color/AccentColor</item>

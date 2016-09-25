@@ -2,7 +2,7 @@
 <resources>
 	<!-- Artina Exported Colors -->
 
-	<color name="AccentColor">#FF7F0000</color>
+	<color name="AccentColor">#FF000000</color>
 
 	<color name="InverseTextColor">#FFFFFFFF</color>
 

@@ -35,7 +35,11 @@ namespace CarDealer
             InitializeComponent();
 
             Current = this;
-            MainPage = new CarDealer.Pages.RootPage(true);
+
+            var root = new CarDealer.Pages.LocationsPage();
+      //      var root = new CarDealer.Pages.MainPage();
+
+            MainPage = root;//.RootPage(true);
             //MainPage = new CarDealer.Pages.LoginPage();
         }
 
