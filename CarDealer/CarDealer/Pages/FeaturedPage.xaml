@@ -22,14 +22,14 @@
             <RowDefinition Height="Auto" />
          </Grid.RowDefinitions>
 
-         <Grid Grid.Row="0">
+         <!--<Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                <ColumnDefinition Width="20" />
                <ColumnDefinition Width="Auto" />
                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- CLOSE ICON -->
+            --><!-- CLOSE ICON --><!--
             <Label
                Grid.Column="0"
                Text="&#xf053;"
@@ -57,7 +57,7 @@
                </Label.GestureRecognizers>
             </Label>
 
-            <!-- Title -->
+            --><!-- Title --><!--
             <Label
                Grid.Column="2"
                Text="Featured"
@@ -68,7 +68,7 @@
                TranslationX="-15"
 			   />
 
-         </Grid>
+         </Grid>-->
 
          <ListView
             Grid.Row="1"

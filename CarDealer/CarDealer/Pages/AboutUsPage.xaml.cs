@@ -29,7 +29,7 @@ namespace CarDealer.Pages
         {
             get
             {
-                return SampleData.SamplesCategories["All"].SamplesList;
+                return SampleData.SamplesCategories["About Us"].SamplesList;
             }
         }
     }

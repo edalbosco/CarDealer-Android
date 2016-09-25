@@ -7,139 +7,140 @@ using Xamarin.Forms;
 
 namespace CarDealer.Models
 {
-   public class Sample
-   {
-      private readonly string _name;
-      private readonly bool _modal;
-      private readonly char _icon;
-      private readonly Type _pageType;
-      private readonly Color? _backgroundColor;
-      private readonly string _backgroundImage;
-      private readonly bool _justNotifyNavigateIntent;
-      private readonly Action<INavigation> _customNavigation;
+    public class Sample
+    {
+        private readonly string _name;
+        private readonly bool _modal;
+        private readonly char _icon;
+        private readonly Type _pageType;
+        private readonly Color? _backgroundColor;
+        private readonly string _backgroundImage;
+        private readonly bool _justNotifyNavigateIntent;
+        private readonly Action<INavigation> _customNavigation;
 
-      public Sample(string name, Type pageType, string backgroundImage, char icon = '\uf054', bool modal = false, bool justNotifyNavigateIntent = false, Action<INavigation> customNavigation = null)
-      {
-         _name = name;
-         _pageType = pageType;
-         _icon = icon;
-         _backgroundImage = backgroundImage;
-         _modal = modal;
-         _justNotifyNavigateIntent = justNotifyNavigateIntent;
-         _customNavigation = customNavigation;
-      }
+        public Sample(string name, Type pageType, string backgroundImage, char icon = '\uf054', bool modal = false, bool justNotifyNavigateIntent = false, Action<INavigation> customNavigation = null)
+        {
+            _name = name;
+            _pageType = pageType;
+            _icon = icon;
+            _backgroundImage = backgroundImage;
+            _modal = modal;
+            _justNotifyNavigateIntent = justNotifyNavigateIntent;
+            _customNavigation = customNavigation;
+        }
 
-      public Sample(string name, Type pageType, Color backgroundColor, string backgroundImage, char icon = '\uf054', bool modal = false, bool justNotifyNavigateIntent = false, Action<INavigation> customNavigation = null)
-      {
-         _name = name;
-         _pageType = pageType;
-         _icon = icon;
-         _backgroundColor = backgroundColor;
-         _backgroundImage = backgroundImage;
-         _modal = modal;
-         _justNotifyNavigateIntent = justNotifyNavigateIntent;
-         _customNavigation = customNavigation;
-      }
+        public Sample(string name, Type pageType, Color backgroundColor, string backgroundImage, char icon = '\uf054', bool modal = false, bool justNotifyNavigateIntent = false, Action<INavigation> customNavigation = null)
+        {
+            _name = name;
+            _pageType = pageType;
+            _icon = icon;
+            _backgroundColor = backgroundColor;
+            _backgroundImage = backgroundImage;
+            _modal = modal;
+            _justNotifyNavigateIntent = justNotifyNavigateIntent;
+            _customNavigation = customNavigation;
+        }
 
-      public string Name
-      {
-         get
-         {
-            return _name;
-         }
-      }
-
-      public char Icon
-      {
-         get
-         {
-            return _icon;
-         }
-      }
-
-      public Color? BackgroundColor
-      {
-         get
-         {
-            return _backgroundColor;
-         }
-      }
-
-      public string BackgroundImage
-      {
-         get
-         {
-            return _backgroundImage;
-         }
-      }
-
-      public async Task NavigateToSample(INavigation navigation)
-      {
-         SampleCoordinator.RaiseSampleSelected(this);
-
-         if (_justNotifyNavigateIntent)
-         {
-            return;
-         }
-
-         if (_customNavigation != null)
-         {
-            _customNavigation(navigation);
-            return;
-         }
-
-         int popCount = 0;
-         int firstPageToPopIndex = 0;
-
-         for (int i = navigation.NavigationStack.Count - 1; i >= 0; i--)
-         {
-            if (navigation.NavigationStack[i].GetType() == _pageType)
+        public string Name
+        {
+            get
             {
-               firstPageToPopIndex = i + 1;
-               popCount = navigation.NavigationStack.Count - 1 - i;
-               break;
+                return _name;
             }
-         }
+        }
 
-         if (popCount > 0)
-         {
-            for (int i = 1; i < popCount; i++)
+        public char Icon
+        {
+            get
             {
-               navigation.RemovePage(navigation.NavigationStack[firstPageToPopIndex]);
+                return _icon;
+            }
+        }
+
+        public Color? BackgroundColor
+        {
+            get
+            {
+                return _backgroundColor;
+            }
+        }
+
+        public string BackgroundImage
+        {
+            get
+            {
+                return _backgroundImage;
+            }
+        }
+
+        public async Task NavigateToSample(INavigation navigation)
+        {
+            SampleCoordinator.RaiseSampleSelected(this);
+
+            if (_justNotifyNavigateIntent)
+            {
+                return;
             }
 
-            await navigation.PopAsync();
+            if (_customNavigation != null)
+            {
+                _customNavigation(navigation);
+                return;
+            }
 
-            return;
-         }
+            int popCount = 0;
+            int firstPageToPopIndex = 0;
 
-         var page = CreateContentPage();
+            for (int i = navigation.NavigationStack.Count - 1; i >= 0; i--)
+            {
+                if (navigation.NavigationStack[i].GetType() == _pageType)
+                {
+                    firstPageToPopIndex = i + 1;
+                    popCount = navigation.NavigationStack.Count - 1 - i;
+                    break;
+                }
+            }
 
-         if (_modal)
-         {
-             //   await navigation.PushModalAsync(new NavigationPage(page));
+            if (popCount > 0)
+            {
+                for (int i = 1; i < popCount; i++)
+                {
+                    navigation.RemovePage(navigation.NavigationStack[firstPageToPopIndex]);
+                }
+
+                await navigation.PopAsync();
+
+                return;
+            }
+
+            var page = CreateContentPage();
+
+            if (_modal)
+            {
+                //   await navigation.PushModalAsync(new NavigationPage(page));
                 await navigation.PushModalAsync(page);
             }
-            else {
-            await navigation.PushAsync(page);
-         }
-      }
+            else
+            {
+                await navigation.PushAsync(page);
+            }
+        }
 
-      private Page CreateContentPage()
-      {
-         var page = Activator.CreateInstance(_pageType) as Page;
+        private Page CreateContentPage()
+        {
+            var page = Activator.CreateInstance(_pageType) as Page;
 
-         System.Diagnostics.Debug.Assert(page != null);
+            System.Diagnostics.Debug.Assert(page != null);
 
-         return page;
-      }
+            return page;
+        }
 
-      public Type PageType
-      {
-         get
-         {
-            return _pageType;
-         }
-      }
-   }
+        public Type PageType
+        {
+            get
+            {
+                return _pageType;
+            }
+        }
+    }
 }

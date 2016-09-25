@@ -87,10 +87,10 @@ namespace CarDealer.Templates
             var sample = (Sample)BindingContext;
             if (sample != null)
             {
-               if ((this.Navigation.NavigationStack.Count == 0) ||
-                  (sample.PageType != this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 1].GetType()))
+               if ((App.Current.Navigation.NavigationStack.Count == 0) ||
+                  (sample.PageType != App.Current.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 1].GetType()))
                {
-                  sample.NavigateToSample(Navigation);
+                  sample.NavigateToSample(App.Current.Navigation);
                }
             }
          }

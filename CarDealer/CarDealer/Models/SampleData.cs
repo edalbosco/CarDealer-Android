@@ -76,11 +76,11 @@ namespace CarDealer.Models
                BackgroundImage = "",
                Icon = '\uf1b9',
                SamplesList = new List<Sample> {
-                  new Sample("About Us", typeof(AboutUsPage), Color.White, "", '\uf1b9',true),
-                  new Sample("Locations", typeof(LocationsPage), Color.White, "", '\uf041',true),
-                  new Sample("Our News", typeof(OurNewsPage), Color.White, "", '\uf0f6',true),
-                  new Sample("Contacts", typeof(ContactsPage), Color.White, "", '\uf007',true),
-                  new Sample("Facebook", typeof(FacebookPage), Color.White, "", '\uf230',true)
+                  new Sample("About Us", typeof(AboutUsPage), Color.White, "", '\uf1b9',false),
+                  new Sample("Locations", typeof(LocationsPage), Color.White, "", '\uf041',false),
+                  new Sample("Our News", typeof(OurNewsPage), Color.White, "", '\uf0f6',false),
+                  new Sample("Contacts", typeof(ContactsPage), Color.White, "", '\uf007',false),
+                  new Sample("Facebook", typeof(FacebookPage), Color.White, "", '\uf230',false)
                }
             }
          );

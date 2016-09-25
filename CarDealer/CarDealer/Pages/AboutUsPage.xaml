@@ -13,15 +13,14 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
-
-    <Grid VerticalOptions="Start">
+    <!--<Grid VerticalOptions="Start">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="20" />
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="*" />
       </Grid.ColumnDefinitions>
 
-       <!--CLOSE ICON--> 
+       --><!--CLOSE ICON--><!-- 
       <Label
          Grid.Column="0"
          Text="&#xf053;"
@@ -49,7 +48,7 @@
         </Label.GestureRecognizers>
       </Label>
 
-       <!--Title--> 
+       --><!--Title--><!-- 
       <Label
          Grid.Column="2"
          Text="About Us"
@@ -60,7 +59,7 @@
          TranslationX="-15"
 			   />
 
-    </Grid>
+    </Grid>-->
 
     <Grid Grid.Row="1"
       VerticalOptions="FillAndExpand"

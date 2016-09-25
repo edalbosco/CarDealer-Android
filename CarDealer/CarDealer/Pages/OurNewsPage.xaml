@@ -1,6 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CarDealer.Pages.OurNewsPage">
-   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             xmlns:artina="clr-namespace:UXDivers.Artina.Shared;assembly=UXDivers.Artina.Shared"
+             xmlns:templates="clr-namespace:CarDealer.Templates"
+             x:Class="CarDealer.Pages.OurNewsPage"
+             BackgroundColor="Black"
+             Title="Our News" >
+
+  <Grid Padding="0" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!--<Grid VerticalOptions="Start">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="20" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      --><!--CLOSE ICON--><!--
+      <Label
+         Grid.Column="0"
+         Text="&#xf053;"
+         FontSize="20"
+         Style="{StaticResource FontIcon}"
+         Opacity="1"
+         TextColor="Blue"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+                  >
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnBackTapped" />
+        </Label.GestureRecognizers>
+      </Label>
+
+      <Label
+         Grid.Column="1"
+         Text="Home"
+         TextColor="Blue"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+               >
+        <Label.GestureRecognizers>
+          <TapGestureRecognizer Tapped="OnBackTapped" />
+        </Label.GestureRecognizers>
+      </Label>
+
+      --><!--Title--><!--
+      <Label
+         Grid.Column="2"
+         Text="Our News"
+         TextColor="White"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"
+         FontSize="24"
+         TranslationX="-15"
+			   />
+
+    </Grid>-->
+
+    <Grid Grid.Row="1"
+      VerticalOptions="FillAndExpand"
+          ColumnSpacing="0"
+          RowSpacing="0"
+          Padding="0">
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+
+      <ListView 
+            Grid.Row="0"
+            ItemsSource="{Binding NewsItems}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Black"
+            HasUnevenRows = "False"
+            IsPullToRefreshEnabled ="false"
+            RowHeight="150"
+            >
+
+        <ListView.ItemTemplate >
+          <DataTemplate>
+            <ViewCell >
+              <templates:NewsItemTemplate />
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+      <artina:GridOptionsView
+                         x:Name="menuOptions"
+                         Grid.Row="1"
+                         ColumnCount="5"
+                         RowCount="1"
+                         ColumnSpacing="0"
+                         RowSpacing="0"
+                         Padding="5,5,0,5"
+                         VerticalOptions="Center"
+                         BackgroundColor="Black"
+                         ItemsSource="{Binding Items}"
+                         HeightRequest="45">
+        
+        <artina:GridOptionsView.ItemTemplate>
+          <DataTemplate>
+            <templates:BottomMenuItemTemplate
+                  ShowBackgroundImage="false"
+                  ShowBackgroundColor="false"
+                  ShowiconColoredCircleBackground="false"
+                  TextColor="White" />
+          </DataTemplate>
+        </artina:GridOptionsView.ItemTemplate>
+      </artina:GridOptionsView>
+
+    </Grid>
+
+  </Grid>
 </ContentPage>

@@ -28,7 +28,7 @@ namespace CarDealer.Pages
         {
             get
             {
-                return SampleData.SamplesCategories["All"].SamplesList;
+                return SampleData.SamplesCategories["Locations"].SamplesList;
             }
         }
     }
